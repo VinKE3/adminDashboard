@@ -9,8 +9,10 @@ export default function HomeHeader() {
         <div className="flex gap-2 items-center">
           <Image
             src={session?.user?.image}
-            alt=""
+            alt="user image"
             className="w-6 h-6 rounded-md sm:hidden"
+            width={24}
+            height={24}
           />
           <div>
             Hello, <b>{session?.user?.name}</b>
@@ -19,7 +21,14 @@ export default function HomeHeader() {
       </h2>
       <div className="hidden sm:block">
         <div className="bg-gray-300 flex gap-1 text-black rounded-lg overflow-hidden">
-          <Image src={session?.user?.image} alt="" className="w-6 h-6" />
+          <Image
+            src={session?.user?.image}
+            alt=" user image"
+            className="w-6 h-6"
+            width={14}
+            height={14}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
           <span className="px-2">{session?.user?.name}</span>
         </div>
       </div>

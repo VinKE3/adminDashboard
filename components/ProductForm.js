@@ -146,7 +146,14 @@ export default function ProductForm({
                 key={link}
                 className="h-24 bg-white p-4 shadow-sm rounded-sm border border-gray-200"
               >
-                <Image src={link} alt="" className="rounded-lg" />
+                <Image
+                  src={link}
+                  alt=""
+                  className="rounded-lg"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  width={200}
+                  height={200}
+                />
               </div>
             ))}
         </ReactSortable>

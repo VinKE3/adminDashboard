@@ -147,12 +147,12 @@ export default function ProductForm({
                 className="h-24 bg-white p-4 shadow-sm rounded-sm border border-gray-200"
               >
                 <Image
-                  src={link}
-                  alt=""
+                  src={`${link}`}
+                  alt="producto-img"
                   className="rounded-lg"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  width={200}
-                  height={200}
+                  width={100}
+                  height={250}
                 />
               </div>
             ))}

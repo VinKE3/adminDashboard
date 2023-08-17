@@ -21,7 +21,6 @@ function SettingsPage({ swal }) {
     setIsLoading(true);
     await axios.get("/api/products").then((res) => {
       setProducts(res.data);
-      console.log(res.data);
     });
     const featuredProductResponse = await axios.get(
       "/api/settings?name=featuredProductId"
@@ -67,8 +66,8 @@ function SettingsPage({ swal }) {
             onChange={(ev) => setFeaturedProductId(ev.target.value)}
           >
             {products.length > 0 &&
-              products.map((product) => (
-                <option key={products.id} value={product._id}>
+              products.map((product, index) => (
+                <option key={index} value={product._id}>
                   {product.title}
                 </option>
               ))}

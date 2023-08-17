@@ -85,12 +85,16 @@ export default function ProductForm({
   const propertiesToFill = [];
   if (categories.length > 0 && category) {
     let catInfo = categories.find(({ _id }) => _id === category);
-    propertiesToFill.push(...catInfo.properties);
+    if (catInfo && catInfo.properties) {
+      propertiesToFill.push(...catInfo.properties);
+    }
     while (catInfo?.parent?._id) {
       const parentCat = categories.find(
         ({ _id }) => _id === catInfo?.parent?._id
       );
-      propertiesToFill.push(...parentCat.properties);
+      if (catInfo && catInfo.properties) {
+        propertiesToFill.push(...catInfo.properties);
+      }
       catInfo = parentCat;
     }
   }
@@ -150,9 +154,8 @@ export default function ProductForm({
                   src={`${link}`}
                   alt="producto-img"
                   className="rounded-lg"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   width={100}
-                  height={250}
+                  height={100}
                 />
               </div>
             ))}

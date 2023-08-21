@@ -15,14 +15,14 @@ export default function OrdersPage() {
   }, []);
   return (
     <Layout>
-      <h1>Orders</h1>
+      <h1 className="font-bold uppercase">Ordenes</h1>
       <table className="basic">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Paid</th>
-            <th>Recipient</th>
-            <th>Products</th>
+            <th>Día</th>
+            <th>Pago</th>
+            <th>Receptor</th>
+            <th>Productos</th>
           </tr>
         </thead>
         <tbody>
@@ -40,7 +40,7 @@ export default function OrdersPage() {
               <tr key={orders.id}>
                 <td>{new Date(order.createdAt).toLocaleString()}</td>
                 <td className={order.paid ? "text-green-600" : "text-red-600"}>
-                  {order.paid ? "YES" : "NO"}
+                  {order.paid ? "SI" : "NO"}
                 </td>
                 <td>
                   {order.name} {order.email}

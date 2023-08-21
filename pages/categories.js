@@ -101,17 +101,23 @@ function Categories({ swal }) {
   }
   return (
     <Layout>
-      <h1>Categories</h1>
-      <label>
+      <h1
+        className="
+       text-black uppercase font-bold
+      "
+      >
+        Categorias
+      </h1>
+      <label className="font-bold">
         {editedCategory
-          ? `Edit category ${editedCategory.name}`
-          : "Create new category"}
+          ? `Editar Categoria ${editedCategory.name}`
+          : "Crear Nueva Categoria"}
       </label>
       <form onSubmit={saveCategory}>
-        <div className="flex gap-1">
+        <div className="flex flex-col md:flex-row gap-1">
           <input
             type="text"
-            placeholder={"Category name"}
+            placeholder={"Nombre de la categoria"}
             onChange={(ev) => setName(ev.target.value)}
             value={name}
           />
@@ -119,7 +125,7 @@ function Categories({ swal }) {
             onChange={(ev) => setParentCategory(ev.target.value)}
             value={parentCategory}
           >
-            <option value="">No parent category</option>
+            <option value="">Sin Categoria Predecesora</option>
             {categories.length > 0 &&
               categories.map((category) => (
                 <option key={category._id} value={category._id}>
@@ -129,13 +135,13 @@ function Categories({ swal }) {
           </select>
         </div>
         <div className="mb-2">
-          <label className="block">Properties</label>
+          <label className="block font-bold mb-1">Propiedades</label>
           <button
             onClick={addProperty}
             type="button"
-            className="btn-default text-sm mb-2"
+            className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700 font-bold"
           >
-            Add new property
+            Agregar Propiedad
           </button>
           {properties.length > 0 &&
             properties.map((property, index) => (
@@ -163,7 +169,7 @@ function Categories({ swal }) {
                   type="button"
                   className="btn-red"
                 >
-                  Remove
+                  Remover
                 </button>
               </div>
             ))}
@@ -183,18 +189,23 @@ function Categories({ swal }) {
               Cancel
             </button>
           )}
-          <button type="submit" className="btn-primary py-1">
-            Save
+          <button
+            type="submit"
+            className="
+          bg-green-500 text-white px-2 py-1 rounded hover:bg-green-700 font-bold
+          "
+          >
+            Guardar
           </button>
         </div>
       </form>
       {!editedCategory && (
-        <table className="basic mt-4">
+        <table className="basic mt-4 font-bold uppercase">
           <thead>
             <tr>
-              <td>Category name</td>
-              <td>Parent category</td>
-              <td></td>
+              <td>Nombre Categoria </td>
+              <td>Categoria Predecesora</td>
+              <td>Acciones</td>
             </tr>
           </thead>
           <tbody>
@@ -212,18 +223,21 @@ function Categories({ swal }) {
                 <tr key={category.name}>
                   <td>{category.name}</td>
                   <td>{category?.parent?.name}</td>
-                  <td>
+                  <td className="mt-2">
                     <button
                       onClick={() => editCategory(category)}
-                      className="btn-default mr-1"
+                      className="
+                   bg-blue-500 text-white px-4 mx-2 py-1 rounded-md mb-2 font-bold hover:bg-blue-700
+                  "
                     >
-                      Edit
+                      Editar
                     </button>
                     <button
                       onClick={() => deleteCategory(category)}
-                      className="btn-red"
+                      className="
+                   bg-red-500 text-white px-4 py-1 rounded-md mb-2 font-bold hover:bg-red-700"
                     >
-                      Delete
+                      Eliminar
                     </button>
                   </td>
                 </tr>

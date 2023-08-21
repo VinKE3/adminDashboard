@@ -43,22 +43,33 @@ export default function Products() {
 
   return (
     <Layout>
-      <Link className="btn-primary" href={"/products/new"}>
-        Add new product
+      <Link
+        className="
+        bg-black text-white px-4 py-2 rounded-md mb-2 font-bold hover:bg-gray-900
+      "
+        href={"/products/new"}
+      >
+        Agregar producto
       </Link>
-      <select value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">All categories</option>
+      <select
+        className="
+       mt-4  bg-white text-black px-4 py-2 rounded-md mb-2 font-bold 
+      "
+        value={selectedCategory}
+        onChange={handleCategoryChange}
+      >
+        <option value="">Todas las Categorias</option>
         {categories.map((category) => (
           <option key={category._id} value={category._id}>
             {category.name}
           </option>
         ))}
       </select>
-      <table className="basic mt-2">
+      <table className="basic mt-2 font-bold uppercase">
         <thead>
           <tr>
-            <td>Product name</td>
-            <td>Options</td>
+            <td>Nombre del Producto</td>
+            <td>Acciones</td>
           </tr>
         </thead>
         <tbody>
@@ -76,16 +87,19 @@ export default function Products() {
               <td>{product.title}</td>
               <td>
                 <Link
-                  className="btn-default"
+                  className="
+                   bg-blue-500 text-white px-4 py-2 rounded-md mb-2 font-bold hover:bg-blue-700
+                  "
                   href={"/products/edit/" + product._id}
                 >
-                  Edit
+                  Editar
                 </Link>
                 <Link
-                  className="btn-red"
+                  className="
+                   bg-red-500 text-white px-4 py-2 rounded-md mb-2 font-bold hover:bg-red-700"
                   href={"/products/delete/" + product._id}
                 >
-                  Delete
+                  Eliminar
                 </Link>
               </td>
             </tr>

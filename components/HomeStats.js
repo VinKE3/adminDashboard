@@ -46,44 +46,50 @@ export default function HomeStats() {
 
   return (
     <div>
-      <h2>Orders</h2>
+      <h2 className="font-bold uppercase">Ordenes</h2>
       <div className="tiles-grid">
         <div className="tile">
-          <h3 className="tile-header">Today</h3>
-          <div className="tile-number">{ordersToday.length}</div>
-          <div className="tile-desc">{ordersToday.length} orders today</div>
+          <h3 className="tile-header">Hoy</h3>
+          <div className="tile-number text-gray-900">{ordersToday.length}</div>
+          <div className="tile-desc">{ordersToday.length} Ordenes hoy</div>
         </div>
         <div className="tile">
-          <h3 className="tile-header">This week</h3>
-          <div className="tile-number">{ordersWeek.length}</div>
-          <div className="tile-desc">{ordersWeek.length} orders this week</div>
-        </div>
-        <div className="tile">
-          <h3 className="tile-header">This month</h3>
-          <div className="tile-number">{ordersMonth.length}</div>
+          <h3 className="tile-header">Esta Semana</h3>
+          <div className="tile-number text-gray-900">{ordersWeek.length}</div>
           <div className="tile-desc">
-            {ordersMonth.length} orders this month
+            {ordersWeek.length} ordenes esta semana
           </div>
+        </div>
+        <div className="tile">
+          <h3 className="tile-header">Este Mes</h3>
+          <div className="tile-number text-gray-900">{ordersMonth.length}</div>
+          <div className="tile-desc">{ordersMonth.length} Ordenes este mes</div>
         </div>
       </div>
-      <h2>Revenue</h2>
+      <h2 className="font-bold uppercase">Ganancia</h2>
       <div className="tiles-grid">
         <div className="tile">
-          <h3 className="tile-header">Today</h3>
-          <div className="tile-number">$ {ordersTotal(ordersToday)}</div>
-          <div className="tile-desc">{ordersToday.length} orders today</div>
-        </div>
-        <div className="tile">
-          <h3 className="tile-header">This week</h3>
-          <div className="tile-number">$ {ordersTotal(ordersWeek)}</div>
-          <div className="tile-desc">{ordersWeek.length} orders this week</div>
-        </div>
-        <div className="tile">
-          <h3 className="tile-header">This month</h3>
-          <div className="tile-number">$ {ordersTotal(ordersMonth)}</div>
-          <div className="tile-desc">
-            {ordersMonth.length} orders this month
+          <h3 className="tile-header">Hoy</h3>
+          <div className="tile-number text-gray-900">
+            $ {ordersTotal(ordersToday)}
           </div>
+          <div className="tile-desc">{ordersToday.length} ordenes hoy</div>
+        </div>
+        <div className="tile">
+          <h3 className="tile-header">Esta Semana</h3>
+          <div className="tile-number text-gray-900">
+            $ {ordersTotal(ordersWeek)}
+          </div>
+          <div className="tile-desc">
+            {ordersWeek.length} ordenes esta semana
+          </div>
+        </div>
+        <div className="tile">
+          <h3 className="tile-header">Este Mes</h3>
+          <div className="tile-number text-gray-900">
+            $ {ordersTotal(ordersMonth)}
+          </div>
+          <div className="tile-desc">{ordersMonth.length} Ordenes este mes</div>
         </div>
       </div>
     </div>

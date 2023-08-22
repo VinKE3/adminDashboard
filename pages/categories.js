@@ -57,11 +57,11 @@ function Categories({ swal }) {
   function deleteCategory(category) {
     swal
       .fire({
-        title: "Are you sure?",
-        text: `Do you want to delete ${category.name}?`,
+        title: "Está Seguro?",
+        text: `Desea Eliminar la siguiente Categoria: ${category.name}?`,
         showCancelButton: true,
-        cancelButtonText: "Cancel",
-        confirmButtonText: "Yes, Delete!",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Si, Eliminar!",
         confirmButtonColor: "#d55",
         reverseButtons: true,
       })

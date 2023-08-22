@@ -32,11 +32,11 @@ function AdminsPage({ swal }) {
   function deleteAdmin(_id, email) {
     swal
       .fire({
-        title: "Are you sure?",
-        text: `Do you want to delete admin ${email}?`,
+        title: "Esta Seguro?",
+        text: `Desea eliminar al siguiente ADMIN: ${email}?`,
         showCancelButton: true,
-        cancelButtonText: "Cancel",
-        confirmButtonText: "Yes, Delete!",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Si, Eliminar!",
         confirmButtonColor: "#d55",
         reverseButtons: true,
       })
@@ -64,8 +64,8 @@ function AdminsPage({ swal }) {
   }, []);
   return (
     <Layout>
-      <h1>Admins</h1>
-      <h2>Add new admin</h2>
+      <h1 className="font-bold uppercase">Admins</h1>
+      <h2 className="font-bold">Agregar Nuevo Admin</h2>
       <form onSubmit={addAdmin}>
         <div className="flex gap-2">
           <input
@@ -75,13 +75,16 @@ function AdminsPage({ swal }) {
             onChange={(ev) => setEmail(ev.target.value)}
             placeholder="google email"
           />
-          <button type="submit" className="btn-primary py-1 whitespace-nowrap">
-            Add admin
+          <button
+            type="submit"
+            className="bg-black text-white rounded-lg px-2 py-1 whitespace-nowrap hover:bg-slate-600"
+          >
+            Agregar admin
           </button>
         </div>
       </form>
 
-      <h2>Existing admins</h2>
+      <h2 className="font-bold">Existing admins</h2>
       <table className="basic">
         <thead>
           <tr>
@@ -112,9 +115,9 @@ function AdminsPage({ swal }) {
                     onClick={() =>
                       deleteAdmin(adminEmail._id, adminEmail.email)
                     }
-                    className="btn-red"
+                    className="bg-red-600 text-white rounded-lg px-2 py-1 whitespace-nowrap hover:bg-red-700"
                   >
-                    Delete
+                    Eliminar
                   </button>
                 </td>
               </tr>

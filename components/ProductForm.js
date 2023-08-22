@@ -101,16 +101,16 @@ export default function ProductForm({
 
   return (
     <form onSubmit={saveProduct}>
-      <label>Product name</label>
+      <label className="font-bold">Nombre del Producto</label>
       <input
         type="text"
-        placeholder="product name"
+        placeholder="Nombre del Producto"
         value={title}
         onChange={(ev) => setTitle(ev.target.value)}
       />
-      <label>Category</label>
+      <label className="font-bold">Categoria</label>
       <select value={category} onChange={(ev) => setCategory(ev.target.value)}>
-        <option value="">Uncategorized</option>
+        <option value="">Sin Categoria</option>
         {categories.length > 0 &&
           categories.map((c) => (
             <option key={c._id} value={c._id}>
@@ -121,8 +121,10 @@ export default function ProductForm({
       {categoriesLoading && <Spinner />}
       {propertiesToFill.length > 0 &&
         propertiesToFill.map((p, index) => (
-          <div key={index} className="">
-            <label>{p.name[0].toUpperCase() + p.name.substring(1)}</label>
+          <div key={index}>
+            <label className="font-bold">
+              {p.name[0].toUpperCase() + p.name.substring(1)}
+            </label>
             <div>
               <select
                 value={productProperties[p.name]}
@@ -137,7 +139,7 @@ export default function ProductForm({
             </div>
           </div>
         ))}
-      <label>Photos</label>
+      <label className="font-bold">Fotos</label>
       <div className="mb-2 flex flex-wrap gap-1">
         <ReactSortable
           list={images}
@@ -165,7 +167,7 @@ export default function ProductForm({
             <Spinner />
           </div>
         )}
-        <label className="w-24 h-24 cursor-pointer text-center flex flex-col items-center justify-center text-sm gap-1 text-primary rounded-sm bg-white shadow-sm border border-primary">
+        <label className="w-24 h-24 cursor-pointer text-center flex flex-col items-center justify-center text-sm gap-1 text-black rounded-sm bg-white shadow-sm border border-black hover:bg-slate-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -180,25 +182,28 @@ export default function ProductForm({
               d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
             />
           </svg>
-          <div>Add image</div>
+          <div>Agregar Imagen</div>
           <input type="file" onChange={uploadImages} className="hidden" />
         </label>
       </div>
-      <label>Description</label>
+      <label className="font-bold">Descripción</label>
       <textarea
-        placeholder="description"
+        placeholder="Descripción"
         value={description}
         onChange={(ev) => setDescription(ev.target.value)}
       />
-      <label>Price (in USD)</label>
+      <label className="font-bold">Precio (in ARS)</label>
       <input
         type="number"
-        placeholder="price"
+        placeholder="Precio"
         value={price}
         onChange={(ev) => setPrice(ev.target.value)}
       />
-      <button type="submit" className="btn-primary">
-        Save
+      <button
+        type="submit"
+        className="bg-black text-white p-2 hover:bg-gray-900 rounded-lg"
+      >
+        Guardar
       </button>
     </form>
   );

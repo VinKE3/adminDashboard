@@ -56,11 +56,11 @@ function SettingsPage({ swal }) {
 
   return (
     <Layout>
-      <h1>Settings</h1>
+      <h1 className="uppercase font-bold">Configuración</h1>
       {isLoading && <Spinner />}
       {!isLoading && (
         <>
-          <label>Featured product</label>
+          <label className="font-bold">Producto Principal</label>
           <select
             value={featuredProductId}
             onChange={(ev) => setFeaturedProductId(ev.target.value)}
@@ -72,15 +72,20 @@ function SettingsPage({ swal }) {
                 </option>
               ))}
           </select>
-          <label>Shipping price (in usd)</label>
+          <label className="font-bold">Precio de Venta (ARS)</label>
           <input
             type="number"
             value={shippingFee}
             onChange={(ev) => setShippingFee(ev.target.value)}
           />
           <div>
-            <button onClick={saveSettings} className="btn-primary">
-              Save settings
+            <button
+              onClick={saveSettings}
+              className="
+             bg-black text-white rounded-sm px-2 py-1 whitespace-nowrap hover:bg-slate-600
+            "
+            >
+              Guardar Cambios
             </button>
           </div>
         </>
